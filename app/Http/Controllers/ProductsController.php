@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use App\Models\Brands;
-use App\Models\categories;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductsRequest;
 use App\Http\Requests\UpdateProductsRequest;
@@ -33,6 +33,8 @@ class ProductsController extends Controller
     public function create()
     {
         $product = new Products();
+        $brands = Brands::all();
+        $categories = categories::all();
         return view('products.create', compact('brands', 'categories', 'product'));
     }
 
@@ -58,6 +60,8 @@ class ProductsController extends Controller
      */
     public function show(Products $product)
     {
+        $brands = Brands::all();
+        $product = Products::with('categories')->findOrFail($product->id);
         $categories = $product->categories; // Solo las categorías asociadas al producto
         return view('products.show', compact('product', 'brands', 'categories'));
     }
@@ -67,6 +71,8 @@ class ProductsController extends Controller
      */
     public function edit(Products $product)
     {
+        $brands = Brands::all();
+        $categories = categories::all();
         return view('products.edit', compact('product', 'brands', 'categories'));
     }
 

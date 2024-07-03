@@ -6,14 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ProductTable extends Component
+class productTable extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+
+    public $products;
+
+    public function __construct($products)
     {
-        //
+        $this->products = $products;
     }
 
     /**
