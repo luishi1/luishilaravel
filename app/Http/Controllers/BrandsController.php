@@ -31,12 +31,15 @@ class BrandsController extends Controller
      */
     public function store(StoreBrandsRequest $request)
     {
-        
-        Brands::create([
-            'brand' => $request->input('brand'),
-        ]);
-        
-        return redirect()->route('brands.index')->with('success', 'The brand has been successfully created.');
+        try {
+            Brands::create([
+                'brand' => $request->input('brand'),
+            ]);
+
+            return redirect()->route('brands.index')->with('success', 'La marca ha sido creada exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     /**
@@ -60,9 +63,8 @@ class BrandsController extends Controller
      */
     public function update(UpdateBrandsRequest $request, Brands $brand)
     {
-    
         $brand->update($request->all());
-        return redirect()->route('brands.index')->with('success', 'Successfully updated brand.');
+        return redirect()->route('brands.index')->with('success', 'La marca ha sido actualizada exitosamente.');
     }
 
     /**
@@ -71,6 +73,6 @@ class BrandsController extends Controller
     public function destroy(Brands $brand)
     {
         $brand->delete();
-        return redirect()->route('brands.index')->with('success', 'Successfully deleted brand.');
+        return redirect()->route('brands.index')->with('success', 'La marca ha sido eliminada exitosamente.');
     }
 }
