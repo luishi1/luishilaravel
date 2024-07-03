@@ -20,6 +20,6 @@
     </form>
 
     <a href="{{ route('products.create') }}" class="btn btn-primary my-3">Create a new product</a>
-    <x-product-table :products="$products" />
+    <x-product-table-component :products="$products" />
 </div>
 @endsection
