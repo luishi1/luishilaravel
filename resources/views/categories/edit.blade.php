@@ -5,7 +5,7 @@
     'disabled' => '',
     'required' => '',
     'hidden' => '',
-    'actionProd' => 'Update category',
+    'actionProd' => 'Actualizar categoria',
     'method' => 'PUT',
     'routeVariable' => 'update'
 ])

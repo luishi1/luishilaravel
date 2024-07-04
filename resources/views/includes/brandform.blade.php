@@ -6,10 +6,10 @@
             @method($method)
         @endif
         <div class="mb-3">
-            <label for="brand" class="form-label">Brand</label>
+            <label for="brand" class="form-label">Marca</label>
             <input type="text" class="form-control" id="brand" name="brand" value="{{ old('brand', $brand->brand ?? '') }}" {{ $disabled }} {{ $required }}>
         </div>
         <button type="submit" class="btn btn-primary" {{ $hidden }}>Guardar</button>
     </form>
-    <a href="{{ route('brands.index') }}">Back</a>
+    <a href="{{ route('brands.index') }}" class="btn btn-secondary mt-3">Volver</a>
 </div>

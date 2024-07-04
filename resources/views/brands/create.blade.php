@@ -7,6 +7,6 @@
     'hidden' => '',
     'routeVariable' => 'store',
     'method' => 'POST',
-    'actionProd' => 'Create a Brand'
+    'actionProd' => 'Crear Marca'
 ])
 @endsection

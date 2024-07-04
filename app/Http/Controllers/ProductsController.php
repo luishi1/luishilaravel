@@ -49,8 +49,7 @@ class ProductsController extends Controller
             $validatedData['price'] = $product->priceWithTax($validatedData['price']);
         }
         $product = Products::create($validatedData);
-
-        $product->categories()->sync($request->category_id);
+        $product->categories()->sync($request->input('category_id', []));
 
         return redirect()->route('products.index')->with('success', 'The product has been successfully created.');
     }
@@ -90,10 +89,8 @@ class ProductsController extends Controller
         }
         
         $product->update($validatedData);
-    
-        $product->categories()->sync($request->category_id);
-    
-
+        $product->categories()->sync($request->input('category_id', []));
+        
         return redirect()->route('products.index')->with('success', 'Successfully updated product.');
     }
 

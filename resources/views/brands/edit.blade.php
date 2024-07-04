@@ -5,7 +5,7 @@
     'disabled' => '',
     'required' => '',
     'hidden' => '',
-    'actionProd' => 'Update brand',
+    'actionProd' => 'Actualizar marca',
     'method' => 'PUT',
     'routeVariable' => 'update'
 ])

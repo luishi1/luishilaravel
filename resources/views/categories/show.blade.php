@@ -8,6 +8,6 @@
     'hidden' => 'hidden',
     'routeVariable' => 'show',
     'method' => 'POST',
-    'actionProd' => 'Category'
+    'actionProd' => 'Categorias'
 ])
 @endsection

@@ -7,6 +7,16 @@
     'hidden' => '',
     'routeVariable' => 'store',
     'method' => 'POST',
-    'actionProd' => 'Create a category'
+    'actionProd' => 'Crear Categoria'
 ])
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @endsection
