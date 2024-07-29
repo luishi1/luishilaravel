@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('includes.formprod', [
+    @include('products.partials.form', [
     'value' => '',
     'disabled' => 'disabled',
     'required' => '',

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Products extends Model
@@ -19,8 +20,7 @@ class Products extends Model
 
     protected $fillable = ['title', 'description', 'price', 'state', 'brand_id', 'category_id'];
 
-    public function priceWithTax($price)
-    {
+    public function priceWithTax($price){
         $price = $price * 1.21;
         return $price;
     }

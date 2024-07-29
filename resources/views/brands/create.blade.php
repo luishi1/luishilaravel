@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@include('includes.brandform', [
+@include('brands.partials.form', [
     'value' => '',
     'disabled' => '',
     'required' => '',

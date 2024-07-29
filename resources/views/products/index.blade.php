@@ -13,6 +13,9 @@
                 </select>
             </div>
             <div class="col">
+                <input type="text" class="form-control" id="search" name="search" placeholder="Buscar por nombre" value="{{ request('search') }}">
+            </div>
+            <div class="col">
                 <button type="submit" class="btn btn-primary">Filtrar</button>
             </div>
         </div>

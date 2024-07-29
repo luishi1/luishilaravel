@@ -15,17 +15,24 @@ class ProductsController extends Controller
      * Display a listing of the resource.
      */
 
-    public function index(Request $request)
-    {
-        $query = Products::query();
-
-        if ($request->has('order')) {
-            $query->orderBy('price', $request->order);
-        }
-
-        $products  = $query->paginate(3);
-        return view('products.index', compact('products'));
-    }
+     public function index(Request $request)
+     {
+         $query = Products::query();
+     
+         // Filtrar por nombre del producto
+         if ($request->has('search') && $request->input('search') != '') {
+             $query->where('title', 'like', '%' . $request->input('search') . '%');
+         }
+     
+         // Ordenar por precio
+         if ($request->has('order')) {
+             $query->orderBy('price', $request->order);
+         }
+         
+         //paginador
+         $products = $query->paginate(3);
+         return view('products.index', compact('products'));
+     }
 
     /**
      * Show the form for creating a new resource.
@@ -46,7 +53,7 @@ class ProductsController extends Controller
         $validatedData = $request->validated();
         $product = new Products();
         if ($request->has('add_taxes') && $request->input('add_taxes')) {
-            $validatedData['price'] = $product->priceWithTax($validatedData['price']);
+            $validatedData['price'] = $product->priceWithTax($request->price);
         }
         $product = Products::create($validatedData);
         $product->categories()->sync($request->input('category_id', []));

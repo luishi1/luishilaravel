@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('includes.categoryform', [
+@include('categories.partials.form', [
     'value' => '',
     'disabled' => 'disabled',
     'required' => '',

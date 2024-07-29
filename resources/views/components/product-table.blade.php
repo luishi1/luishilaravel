@@ -17,7 +17,7 @@
                     <a href="{{ route('products.show', $product) }}" class="btn btn-primary btn-sm">Ver</a>
                     <a href="{{ route('products.edit', $product) }}" class="btn btn-secondary btn-sm">Editar</a>
                     <a href="#" class="btn btn-danger btn-sm" onclick="if(confirm('¿Estás seguro de que quieres eliminar este producto?')) { event.preventDefault(); document.getElementById('delete-form-{{ $product->id }}').submit(); }">Eliminar</a>
-                    <form id="delete-form-{{ $product->id }}" action="{{ route('products.delete', $product) }}" method="POST" style="display: none;">
+                    <form id="delete-form-{{ $product->id }}" action="{{ route('products.destroy', $product) }}" method="POST" style="display: none;">
                         @csrf
                         @method('DELETE')
                     </form>

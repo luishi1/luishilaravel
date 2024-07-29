@@ -17,7 +17,7 @@
                 <td>
                     <a href="{{ route('brands.show', $brand) }}" class="btn btn-primary btn-sm">Ver</a>
                     <a href="{{ route('brands.edit', $brand) }}" class="btn btn-secondary btn-sm">Editar</a>
-                    <form action="{{ route('brands.delete', $brand) }}" method="POST" style="display: inline-block;">
+                    <form action="{{ route('brands.destroy', $brand) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar esta marca?');">Eliminar</button>

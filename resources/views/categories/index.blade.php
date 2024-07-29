@@ -17,7 +17,7 @@
                 <td>
                     <a href="{{ route('categories.show', $category) }}" class="btn btn-primary btn-sm">Ver</a>
                     <a href="{{ route('categories.edit', $category) }}" class="btn btn-secondary btn-sm">Editar</a>
-                    <form action="{{ route('categories.delete', $category) }}" method="POST" style="display: inline-block;">
+                    <form action="{{ route('categories.destroy', $category) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar esta categoría?');">Eliminar</button>
